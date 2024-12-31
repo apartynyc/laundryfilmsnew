@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Laundry Films</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .menu-btn {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            z-index: 3;
+            cursor: pointer;
+            color: #fff;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #fff;
+            z-index: 3;
+        }
+
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 2;
+            padding: 100px 40px;
+            transform: translateX(-100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .main-nav.active {
+            transform: translateX(0);
+        }
+
+        .main-nav ul {
+            list-style: none;
+        }
+
+        .main-nav ul li {
+            margin-bottom: 30px;
+        }
+
+        .main-nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 82px;
+            font-weight: 400;
+            letter-spacing: -1px;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            opacity: 0.7;
+        }
+
+        .about-container {
+            padding: 140px 60px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-content {
+            flex-grow: 1;
+        }
+
+        .about-text {
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .about-email {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.5;
+            text-decoration: none;
+            color: #fff;
+            margin-top: 60px;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .about-email:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-btn" onclick="toggleMenu()">MENU</div>
+    
+    <div class="logo">LAUNDRY FILMS</div>
+    
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-container">
+        <div class="about-content">
+            <div class="about-text">
+                Laundry Films is a dynamic production company established in 1998, dedicated to creating compelling content that resonates with women audiences aged 22 to 68. With a diverse portfolio spanning feature films, television series, documentaries, and commercials, the company has built its reputation on storytelling that matters.
+            </div>
+            
+            <div class="about-text">
+                At the heart of Laundry Films' mission is a commitment to crafting narratives that move, delight, and thrill viewers. The company understands that today's audiences crave authentic stories that both entertain and leave a lasting impact. This dual focus on meaningful content and engaging entertainment has guided their creative approach for over two decades.
+            </div>
+            
+            <div class="about-text">
+                Through their work across multiple formats and genres, Laundry Films continues to enrich the media landscape with stories that speak to real women's experiences, interests, and aspirations. Their versatile production capabilities allow them to bring these stories to life through whatever medium best serves the narrative, whether it's a feature-length film, a television series, a thought-provoking documentary, or innovative commercial content.
+            </div>
+        </div>
+        
+        <a href="mailto:info@laundryfilms.com" class="about-email">info@laundryfilms.com</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.main-nav').classList.toggle('active');
+            document.querySelector('.menu-btn').textContent = 
+                document.querySelector('.main-nav').classList.contains('active') ? 'CLOSE' : 'MENU';
+        }
+
+        document.querySelectorAll('.main-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.main-nav').classList.remove('active');
+                document.querySelector('.menu-btn').textContent = 'MENU';
+            });
+        });
+    </script>
+</body>
+</html>
